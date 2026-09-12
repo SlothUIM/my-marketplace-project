@@ -1,23 +1,11 @@
 /* app.js - Shared Interactive Logic */
 
-// Verified safe swap zone entries
-const verifiedSafeZones = {
-    "54481": [
-        "Stevens Point Police Department Lobby & Lot (933 Michigan Ave) - 24/7 Monitored Cameras",
-        "Portage County Sheriff's Office Parking Exchange Area (1500 Strongs Ave) - Well-Lit Public Space"
-    ],
-    "54467": [
-        "Plover Police Department Main Exchange Lot (2420 Post Rd) - Designated Safe Trade Zone"
-    ],
-    "default": [
-        "Your Nearest Local Municipal Police Department Parking Lot",
-        "Highly Trafficked, Well-Lit Public Station Areas during daytime operational hours"
-    ]
-};
-
-// CRITICAL FIX: Automatically trigger the location scan the exact second the page loads
+// Automatically trigger the location scan on page load only if the user hasn't explicitly chosen to skip it
 document.addEventListener("DOMContentLoaded", () => {
-    autoDetectLocation();
+    // Check if the user previously blocked or allowed location to prevent constant, jarring prompt loops
+    if (localStorage.getItem("common_location_scanned") !== "true") {
+        autoDetectLocation();
+    }
 });
 
 function autoDetectLocation() {
@@ -26,19 +14,21 @@ function autoDetectLocation() {
         return;
     }
 
+    // Set a flag immediately so the browser does not spam the user on every page click or refresh
+    localStorage.setItem("common_location_scanned", "true");
+
     navigator.geolocation.getCurrentPosition(async (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
 
         try {
-            // CRITICAL FIX: Repaired the full open-source reverse-geocoding API string endpoint
             const response = await fetch(`https://bigdatacloud.com{lat}&longitude=${lon}&localityLanguage=en`);
             const data = await response.json();
             
             if (data.postcode) {
                 const detectedZip = data.postcode.trim();
                 
-                // Update inputs instantly if coordinates are resolved securely
+                // Update layout inputs instantly if coordinates are resolved securely
                 const zipInputs = document.querySelectorAll('input[type="number"]');
                 zipInputs.forEach(input => {
                     input.value = detectedZip;
@@ -79,9 +69,14 @@ function toggleSafeZones() {
     const currentZip = zipInput ? zipInput.value.trim() : "";
 
     if (popup.style.display === 'none' || popup.style.display === '') {
-        // Fall back gracefully if the user cleared the box or blocked GPS entirely
-        const spots = verifiedSafeZones[currentZip] || verifiedSafeZones["default"];
-        listContainer.innerHTML = spots.map(spot => `<li style="margin-bottom:0.4rem; color:#222;">${spot}</li>`).join('');
+        // Since we dropped the static const mapping, we dynamically direct the user to their local municipal office using the current text field context
+        const locationText = currentZip ? `ZIP Code ${currentZip}` : "your current area";
+        
+        listContainer.innerHTML = `
+            <li style="margin-bottom:0.4rem; color:#222;">The main municipal police department precinct closest to ${locationText}.</li>
+            <li style="margin-bottom:0.4rem; color:#222;">Highly trafficked public municipal station lobbies or designated, camera-monitored "Safe Trade" public lots.</li>
+        `;
+        
         popup.style.display = 'block';
         link.innerHTML = 'Safe Swap Exchange Locations ↑';
         link.style.fontWeight = '700';

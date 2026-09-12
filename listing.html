@@ -114,30 +114,62 @@
 
     </main>
 
-    <!-- FOOTER TRANSFERRED INTACT -->
-    <footer>
-        <div class="footer-brand">
-            <h4>COMMON.</h4>
-            <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
-        </div>
-        <div class="footer-links">
-            <h5>The Infrastructure</h5>
-            <ul>
-                <li><a href="#">How it Runs (Serverless Routing)</a></li>
-                <li><a href="#">Data Privacy Blueprint</a></li>
-                <li><a href="#">Safe Swap Exchange Locations</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h5>The Project</h5>
-            <ul>
-                <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
-                <li><a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a></li>
-            </ul>
-        </div>
-    </footer>
+   <footer>
+    <div class="footer-brand">
+        <h4>COMMON.</h4>
+        <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
+    </div>
+    
+    <div class="footer-links">
+        <h5>The Infrastructure</h5>
+        <ul>
+            <!-- 3. How It Runs Toggle Component -->
+            <li>
+                <a href="javascript:void(0);" onclick="toggleHowItRuns()" id="howItRunsToggleLink">How it Runs (Serverless Routing) ↓</a>
+                <div id="howItRunsPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                    <strong>Stateless Architecture Protocol:</strong><br><br>
+                    This platform functions without a traditional central user database. When listings are created, data fields are stored as single-use transactional records indexed strictly by geographical location filters. 
+                    <br><br>
+                    Communication operates via transient server-side mail transfer relays that expire dynamically, meaning no persistent data footprints are retained once transactions close.
+                </div>
+            </li>
+            
+            <!-- 4. Data Privacy Blueprint Toggle Component -->
+            <li>
+                <a href="javascript:void(0);" onclick="togglePrivacyBlueprint()" id="privacyBlueprintToggleLink">Data Privacy Blueprint ↓</a>
+                <div id="privacyBlueprintPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                    <strong>Uncompromising Anonymity Principles:</strong><br><br>
+                    • <strong>0 KB Tracking:</strong> No Facebook SDKs, Google Analytics script injections, or marketing tracking pixels are compiled into this application code.<br>
+                    • <strong>Endpoint Masking:</strong> Sensitive delivery data fields like phone handles or P2P financial signatures are scrambled via backend routing payloads, hidden from bots, and opened directly in device native environments securely.
+                </div>
+            </li>
+            
+            <!-- 1. Safe Swap Toggle Component -->
+            <li>
+                <a href="javascript:void(0);" onclick="toggleSafeZones()" id="safeZoneToggleLink">Safe Swap Exchange Locations ↓</a>
+                <div id="safeZonePopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #edf7ed; border: 1px solid #c3e6cb; border-radius: 6px; font-size: 0.85rem; color: #1e4620; line-height: 1.4;">
+                    <ul id="safeLocationList" style="margin: 0; padding-left: 1.2rem;"></ul>
+                </div>
+            </li>
+        </ul>
+    </div>
 
-    <!-- Universal toggle script tracker -->
+    <div class="footer-links">
+        <h5>The Project</h5>
+        <ul>
+            <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
+            <!-- 2. Who Owns This Toggle Component -->
+            <li>
+                <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
+                <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                    <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
+                    This platform is a transparent public prototype born from real exhaustion with modern big-tech data tracking and web slop. The source files belong fully to the open-source software community.
+                </div>
+            </li>
+        </ul>
+    </div>
+</footer>
+
     <script src="app.js"></script>
 
 </body>

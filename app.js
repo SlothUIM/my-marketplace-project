@@ -14,6 +14,54 @@ const verifiedSafeZones = {
         "Highly Trafficked, Well-Lit Public Station Areas during daytime operational hours"
     ]
 };
+/* Inside app.js - Fallback Message Logic Update */
+
+function autoDetectLocation() {
+    if (!navigator.geolocation) {
+        showManualLocationMessage();
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        try {
+            const response = await fetch(`https://bigdatacloud.com{lat}&longitude=${lon}&localityLanguage=en`);
+            const data = await response.json();
+            
+            if (data.postcode) {
+                const detectedZip = data.postcode.trim();
+                
+                // Update inputs instantly if coordinates are resolved securely
+                const zipInputs = document.querySelectorAll('input[type="number"]');
+                zipInputs.forEach(input => {
+                    input.value = detectedZip;
+                });
+                
+                console.log(`[Common Geolocation] Auto-populated sector: ${detectedZip}`);
+            } else {
+                showManualLocationMessage();
+            }
+        } catch (error) {
+            showManualLocationMessage();
+        }
+    }, (error) => {
+        // Triggers if browser access permissions are explicitly blocked
+        showManualLocationMessage();
+    });
+}
+
+// Clean text delivery if permission is blocked or API drops context
+function showManualLocationMessage() {
+    const listContainer = document.getElementById('safeLocationList');
+    if (listContainer) {
+        listContainer.innerHTML = `<li style="list-style: none; margin-left: -1.2rem; color: var(--text-muted); font-style: italic;">
+            Location permissions disabled or unavailable. Type your local ZIP code into the search parameters box above to populate regional safe swap points automatically.
+        </li>`;
+    }
+    console.log("[Common Geolocation] Standing by for manual input filters.");
+}
 
 // 1. Safe Swap Toggle
 function toggleSafeZones() {

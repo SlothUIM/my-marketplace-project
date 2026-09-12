@@ -1,12 +1,14 @@
 /* style.css */
+/* style.css - Token Expansion Update */
 :root { 
-    --bg: #fcfcfc; 
+    --bg: #f8fafc; 
     --surface: #ffffff;
-    --text: #1a1a1a; 
-    --text-muted: #666666;
-    --border: #e0e0e0; 
-    --accent-green: #15803d;
-    --accent-gold: #a16207;
+    --text: #0f172a; 
+    --text-muted: #64748b;
+    --border: #e2e8f0; 
+    --accent-indigo: #4f46e5;
+    --accent-green: #16a34a;
+    --accent-gold: #ca8a04;
 }
 
 body { 
@@ -17,18 +19,27 @@ body {
     padding: 2rem; 
 }
 
-/* Global Nav System */
+/* Expanded Grid Systems */
+.grid-6x {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Global Nav System Update */
 header { 
-    max-width: 1200px; 
+    max-width: 1300px; 
     margin: 0 auto 3rem auto; 
     display: flex; 
     justify-content: space-between; 
     align-items: center;
 }
 .logo-btn { text-decoration: none; color: var(--text); }
-h1 { font-size: 1.8rem; font-weight: 800; margin: 0; letter-spacing: -0.05em; }
-.btn { background: #111; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 500; cursor: pointer; text-decoration: none; }
-.btn:hover { background: #333; }
+h1 { font-size: 1.8rem; font-weight: 800; margin: 0; letter-spacing: -0.05em; color: var(--accent-indigo); }
+.btn { background: var(--text); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; }
+.btn:hover { background: #1e293b; }
 
 /* Status Protocols used on feed and individual listings */
 .badge { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px; text-transform: uppercase; }

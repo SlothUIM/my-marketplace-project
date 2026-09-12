@@ -4,6 +4,15 @@ An account-free, privacy-first local classifieds concept. Built because Facebook
 
 This is a prototype for a marketplace utility that does exactly one job: letting local people buy and sell stuff without tracking pixel slop, passwords, or corporate profile setups.
 
+## 🪵 Our Core Ethos (Why this isn't Depop or OfferUp)
+
+Common is built on pure utility, not financial optimization. 
+
+* **No Side-Hustles:** This platform is designed to clear your space and help your neighbors, not to turn old clothes into an optimized reseller business model. We do not use flashy notifications, "trending" price-bump tags, or algorithmic urgency loops.
+* **Frictionless Geolocation:** Like the best parts of local tools, our configuration is engineered around localized road infrastructure metrics, rather than circular maps that lazily show items across a body of water.
+* **0% Monetization Layer:** We do not store, process, or tax peer-to-peer exchanges. We handle transaction intents natively, leaving the community to swap freely in person.
+
+
 ## How it works (The architecture)
 
 Instead of a database full of user profiles, password hashes, and tracked interests, this platform uses a temporary transaction model.

@@ -40,32 +40,36 @@
         <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
     </div>
     
-    <div class="footer-links">
-        <h5>The Infrastructure</h5>
-        <ul>
-            <li><a href="#">How it Runs (Serverless Routing)</a></li>
-            <li><a href="#">Data Privacy Blueprint</a></li>
-            <li><a href="#">Safe Swap Exchange Locations</a></li>
-        </ul>
-    </div>
+<div class="footer-links">
+    <h5>The Infrastructure</h5>
+    <ul>
+        <li><a href="#">How it Runs (Serverless Routing)</a></li>
+        <li><a href="#">Data Privacy Blueprint</a></li>
+        <!-- Triggers global app.js module safely -->
+        <li>
+            <a href="javascript:void(0);" onclick="toggleSafeZones()" id="safeZoneToggleLink">Safe Swap Exchange Locations ↓</a>
+            <div id="safeZonePopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #edf7ed; border: 1px solid #c3e6cb; border-radius: 6px; color: #1e4620;">
+                <ul id="safeLocationList" style="margin: 0; padding-left: 1.2rem;"></ul>
+            </div>
+        </li>
+    </ul>
+</div>
 
-    <div class="footer-links">
-        <h5>The Project</h5>
-        <ul>
-            <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
-            <li>
-    <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
-    <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-        <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
-        This platform is not a business, a startup, or a corporate entity. It was built out of pure frustration with big-tech data harvesting, forced account tracking, and modern online marketplace scams. 
-        <br><br>
-        The code is entirely transparent and hosted publicly on GitHub. Anyone is free to copy it, audit it, or run their own version for their local community. The servers are kept alive via decentralized public contributions, and the platform collects exactly 0KB of tracking data. It belongs to the community.
-    </div>
-</li>
+<div class="footer-links">
+    <h5>The Project</h5>
+    <ul>
+        <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
+        <!-- Triggers global app.js module safely -->
+        <li>
+            <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
+            <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; color: #333;">
+                <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
+                This platform is a transparent public prototype. The code is hosted on GitHub for anyone to copy, audit, or deploy locally.
+            </div>
+        </li>
+    </ul>
+</div>
 
-            <li><a href="#">Submit Architecture Flag</a></li>
-        </ul>
-    </div>
 </footer>
 <script src="app.js"></script>
 

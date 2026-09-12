@@ -26,6 +26,24 @@
             <div class="field" style="display:flex; flex-direction:row; gap:1rem;"><div style="flex:1;"><label>Price ($)</label><input type="number" required></div><div style="flex:1;"><label>ZIP Code</label><input type="number" required></div></div>
             <div class="field"><label>Description</label><textarea rows="3"></textarea></div>
             <div class="field"><label>Your Endpoint (Email/SMS)</label><input type="text" required><span class="secure-note">🔒 Layer Masked Natively</span></div>
+            <!-- Payment Routing Configurations -->
+<div class="field">
+    <label>Digital P2P Acceptance (Optional)</label>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.25rem;">
+        <div>
+            <input type="text" name="venmo" placeholder="Venmo @username" style="width: 100%; box-sizing: border-box;">
+            <span class="secure-note">🔒 Masked Layer Activated</span>
+        </div>
+        <div>
+            <input type="text" name="cashapp" placeholder="Cash App $cashtag" style="width: 100%; box-sizing: border-box;">
+            <span class="secure-note">🔒 Masked Layer Activated</span>
+        </div>
+    </div>
+    <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 0.5rem; line-height: 1.3;">
+        Your handles are permanently encrypted from the public web. Tapping the payment links during an in-person meetup launches the buyer's native mobile banking app securely.
+    </span>
+</div>
+
             <button type="submit" class="btn" style="width:100%; padding:0.8rem; font-size:1rem;">Publish (Get Magic Link via SMS)</button>
         </form>
     </main>

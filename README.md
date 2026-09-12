@@ -39,6 +39,6 @@ The frontend interface is 100% complete and verified fluid. We are actively look
 - [ ] Stateless PHP/Node.js handlers for token management.
 - [ ] Ephemeral email relay routing nodes.
 - [ ] **Internet Categorization Ingest API Integration:** Replace our temporary local client dictionary script with an external asynchronous gateway fetch (e.g., uClassify REST API or Wikidata Semantic Lookups) to parse item context dynamically on submission.
-
+- [ ] **Smart Geographic Radius Filtering:** Implement a backend routing check (e.g., via Open Source Routing Machine - OSRM) instead of basic Haversine straight-line distance math to prevent items across large water bodies or lakes from polluting a buyer's local 30-mile feed.
 
 Feel free to fork the code and submit a pull request.

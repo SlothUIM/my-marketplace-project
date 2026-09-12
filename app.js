@@ -15,7 +15,7 @@ const verifiedSafeZones = {
     ]
 };
 
-// 1. Safe Swap Toggle UI Tracker
+// 1. Safe Swap Toggle
 function toggleSafeZones() {
     const popup = document.getElementById('safeZonePopup');
     const link = document.getElementById('safeZoneToggleLink');
@@ -38,7 +38,7 @@ function toggleSafeZones() {
     }
 }
 
-// 2. Who Owns This Toggle UI Tracker
+// 2. Who Owns This Toggle
 function toggleOwnershipInfo() {
     const popup = document.getElementById('ownershipPopup');
     const link = document.getElementById('ownerToggleLink');
@@ -51,6 +51,40 @@ function toggleOwnershipInfo() {
     } else {
         popup.style.display = 'none';
         link.innerHTML = 'Who Owns & Runs This? ↓';
+        link.style.fontWeight = 'normal';
+    }
+}
+
+// 3. How It Runs (Serverless Routing) Toggle
+function toggleHowItRuns() {
+    const popup = document.getElementById('howItRunsPopup');
+    const link = document.getElementById('howItRunsToggleLink');
+    if (!popup || !link) return;
+    
+    if (popup.style.display === 'none' || popup.style.display === '') {
+        popup.style.display = 'block';
+        link.innerHTML = 'How it Runs (Serverless Routing) ↑';
+        link.style.fontWeight = '700';
+    } else {
+        popup.style.display = 'none';
+        link.innerHTML = 'How it Runs (Serverless Routing) ↓';
+        link.style.fontWeight = 'normal';
+    }
+}
+
+// 4. Data Privacy Blueprint Toggle
+function togglePrivacyBlueprint() {
+    const popup = document.getElementById('privacyBlueprintPopup');
+    const link = document.getElementById('privacyBlueprintToggleLink');
+    if (!popup || !link) return;
+    
+    if (popup.style.display === 'none' || popup.style.display === '') {
+        popup.style.display = 'block';
+        link.innerHTML = 'Data Privacy Blueprint ↑';
+        link.style.fontWeight = '700';
+    } else {
+        popup.style.display = 'none';
+        link.innerHTML = 'Data Privacy Blueprint ↓';
         link.style.fontWeight = 'normal';
     }
 }

@@ -33,11 +33,12 @@ cd common-marketplace
 python -m http.server 8000
 ```
 
-## Contributing
+## 🤝 Contributing
+The frontend interface is 100% complete and verified fluid. We are actively looking for backend developers and open-source architects to help write server endpoints:
 
-The frontend layout is mostly done, but the backend architecture is completely open. If you want to help write the server-side code, we are currently looking for:
-- Lightweight PHP or Node scripts for generating the UUIDv4 tokens.
-- Ephemeral email routing logic.
-- Basic text parsing/regex to auto-block commercial dealer spam and scrapers before they hit the live feed.
+- [ ] Stateless PHP/Node.js handlers for token management.
+- [ ] Ephemeral email relay routing nodes.
+- [ ] **Internet Categorization Ingest API Integration:** Replace our temporary local client dictionary script with an external asynchronous gateway fetch (e.g., uClassify REST API or Wikidata Semantic Lookups) to parse item context dynamically on submission.
+
 
 Feel free to fork the code and submit a pull request.

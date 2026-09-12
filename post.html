@@ -22,7 +22,33 @@
             <span>📸 <strong>Drag item photos here</strong> or click to browse</span>
         </div>
         <form>
-            <div class="field"><label>Item Title</label><input type="text" required></div>
+           <!-- Update inside post.html -->
+<div class="field">
+    <label for="title">What are you selling?</label>
+    <!-- Onkeyup instantly checks keyword conditions dynamically -->
+    <input type="text" id="title" placeholder="e.g., DeWalt Drill, Wooden Coffee Table" onkeyup="predictCategory(this.value)" required>
+</div>
+
+<div class="field">
+    <label for="categorySelect">Category Selection</label>
+    <select id="categorySelect" required style="padding: 0.7rem; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; color: var(--text); background: var(--surface);">
+        <option value="" disabled selected>Select category...</option>
+        <option value="vehicles">🚗 Vehicles</option>
+        <option value="parts">⚙️ Auto Parts</option>
+        <option value="tools">🔧 Tools</option>
+        <option value="garden">🌱 Garden & Outdoor</option>
+        <option value="furniture">🛋️ Furniture</option>
+        <option value="appliances">🔌 Appliances</option>
+        <option value="electronics">💻 Tech & Computing</option>
+        <option value="phones">📱 Mobile Phones</option>
+        <option value="sporting">🚲 Sports & Bikes</option>
+        <option value="hobbies">🎨 Hobbies & Art</option>
+        <option value="books">📚 Books & Media</option>
+        <option value="free">🎁 Free Curb Alerts</option>
+    </select>
+    <span id="predictFeedback" style="font-size: 0.75rem; color: var(--accent-indigo); font-weight: 600; margin-top: 0.25rem; display: block; height: 1em;"></span>
+</div>
+
             <div class="field" style="display:flex; flex-direction:row; gap:1rem;"><div style="flex:1;"><label>Price ($)</label><input type="number" required></div><div style="flex:1;"><label>ZIP Code</label><input type="number" required></div></div>
             <div class="field"><label>Description</label><textarea rows="3"></textarea></div>
             <div class="field"><label>Your Endpoint (Email/SMS)</label><input type="text" required><span class="secure-note">🔒 Layer Masked Natively</span></div>
@@ -48,6 +74,44 @@
         </form>
     </main>
     <script>
+        // Lightweight local keyword dictionary mapping for layout tracking
+const keywordsMap = {
+    "vehicles": ["car", "truck", "suv", "honda", "ford", "chevy", "toyota", "jeep", "sedan"],
+    "parts": ["tire", "rim", "brake", "alternator", "bumper", "engine", "exhaust", "battery"],
+    "tools": ["drill", "saw", "wrench", "craftsman", "dewalt", "milwaukee", "toolbox", "hammer"],
+    "garden": ["lawnmower", "mower", "hose", "plants", "soil", "rake", "weeder", "patio", "shrub"],
+    "furniture": ["couch", "sofa", "table", "chair", "bed", "dresser", "desk", "ottoman", "futon"],
+    "electronics": ["computer", "laptop", "monitor", "gpu", "desktop", "tv", "camera", "hdmi"],
+    "phones": ["iphone", "samsung", "android", "galaxy", "pixel", "charger", "smartphone"]
+};
+
+function predictCategory(text) {
+    const query = text.toLowerCase().trim();
+    const select = document.getElementById('categorySelect');
+    const feedback = document.getElementById('predictFeedback');
+    if (!select || !feedback) return;
+
+    // Reset indicator string if field is short
+    if (query.length < 3) {
+        feedback.innerHTML = "";
+        return;
+    }
+
+    // Step through mapping metrics to check matching elements
+    for (const [category, keywords] of Object.entries(keywordsMap)) {
+        const hasMatch = keywords.some(keyword => query.includes(keyword));
+        
+        if (hasMatch) {
+            select.value = category;
+            feedback.innerHTML = `✨ Auto-detected matching category! Feel free to modify if incorrect.`;
+            return;
+        }
+    }
+    
+    // Clear feedback label if text yields no direct dictionary match
+    feedback.innerHTML = "";
+}
+
         // Fluid drag uploader micro-logic placeholder
         const zone = document.getElementById('dropZone');
         zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.style.borderColor = 'var(--accent-green)'; });

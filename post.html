@@ -35,5 +35,80 @@
         zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.style.borderColor = 'var(--accent-green)'; });
         zone.addEventListener('dragleave', () => { zone.style.borderColor = '#ccc'; });
     </script>
+    <script>
+    const dropZone = document.getElementById('dropZone');
+    
+    // Create a hidden native file input dynamically so clicking works
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.multiple = true;
+    fileInput.accept = 'image/*';
+    fileInput.style.display = 'none';
+    document.body.appendChild(fileInput);
+
+    // Create a container for image previews right below the dropbox
+    const previewGrid = document.createElement('div');
+    previewGrid.style.display = 'grid';
+    previewGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(80px, 1fr))';
+    previewGrid.style.gap = '10px';
+    previewGrid.style.marginTop = '1rem';
+    dropZone.parentNode.insertBefore(previewGrid, dropZone.nextSibling);
+
+    // Click to open file explorer
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    // Handle file selection change
+    fileInput.addEventListener('change', handleFiles);
+
+    // Visual drag-and-drop feedback states
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'var(--accent-green)';
+        dropZone.style.background = '#f0fdf4';
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.style.borderColor = '#ccc';
+        dropZone.style.background = '#fafafa';
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#ccc';
+        dropZone.style.background = '#fafafa';
+        
+        if (e.dataTransfer.files.length) {
+            fileInput.files = e.dataTransfer.files;
+            handleFiles();
+        }
+    });
+
+    // Process and display thumbnails fluidly without reloading
+    function handleFiles() {
+        previewGrid.innerHTML = ''; // Clear old previews
+        const files = Array.from(fileInput.files);
+
+        files.forEach(file => {
+            if (!file.type.startsWith('image/')) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.width = '100%';
+                img.style.aspectRatio = '4/3';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '4px';
+                img.style.border = '1px solid var(--border)';
+                previewGrid.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Update dropbox text to show success instantly
+        dropZone.innerHTML = `<span>✅ <strong>${files.length} Photo(s) Attached</strong></span>`;
+    }
+</script>
+
 </body>
 </html>

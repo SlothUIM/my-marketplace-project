@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>COMMON. - Open Source Classifieds</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero { text-align: center; margin: 4rem 0; }
+        .hero h2 { font-size: 2.2rem; margin: 0; letter-spacing: -0.04em; }
+        .utility-bar { display: flex; gap: 1rem; max-width: 600px; margin: 2rem auto; }
+        .search-main, .zip-main { padding: 0.8rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; }
+        .search-main { flex-grow: 1; } .zip-main { width: 90px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .cat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.15s; }
+        .cat-card:hover { border-color: #111; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-btn"><h1>COMMON.</h1></a>
+        <a href="post.html" class="btn">+ Sell Something</a>
+    </header>
+    <main class="hero">
+        <h2>Local peer-to-peer utility. No accounts. No tracking.</h2>
+        <div class="utility-bar">
+            <input type="text" class="search-main" placeholder="Search all local items...">
+            <input type="number" class="zip-main" value="54481">
+            <button class="btn" onclick="window.location.href='browse.html'">Go</button>
+        </div>
+        <div class="grid">
+            <a href="browse.html?cat=household" class="cat-card"><h3>🏠 Home & Furniture</h3></a>
+            <a href="browse.html?cat=tools" class="cat-card"><h3>🔧 Tools & Garden</h3></a>
+            <a href="browse.html?cat=electronics" class="cat-card"><h3>💻 Tech & Electronics</h3></a>
+            <a href="browse.html?cat=free" class="cat-card"><h3>🎁 Free Curb Alerts</h3></a>
+        </div>
+    </main>
+</body>
+</html>

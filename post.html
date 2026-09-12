@@ -1,0 +1,39 @@
+<!-- post.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>List an Item - COMMON.</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-box { max-width: 500px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 8px; }
+        .drop-box { border: 2px dashed #ccc; padding: 2.5rem 1rem; text-align: center; background: #fafafa; border-radius: 6px; cursor: pointer; margin-bottom: 1.5rem; }
+        .field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+        input, textarea { padding: 0.7rem; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; }
+        .secure-note { font-size: 0.75rem; color: var(--accent-green); font-weight: 600; margin-top: 0.2rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-btn"><h1>COMMON.</h1></a>
+    </header>
+    <main class="form-box">
+        <h3 style="margin-top:0;">Frictionless Posting Flow</h3>
+        <div class="drop-box" id="dropZone">
+            <span>📸 <strong>Drag item photos here</strong> or click to browse</span>
+        </div>
+        <form>
+            <div class="field"><label>Item Title</label><input type="text" required></div>
+            <div class="field" style="display:flex; flex-direction:row; gap:1rem;"><div style="flex:1;"><label>Price ($)</label><input type="number" required></div><div style="flex:1;"><label>ZIP Code</label><input type="number" required></div></div>
+            <div class="field"><label>Description</label><textarea rows="3"></textarea></div>
+            <div class="field"><label>Your Endpoint (Email/SMS)</label><input type="text" required><span class="secure-note">🔒 Layer Masked Natively</span></div>
+            <button type="submit" class="btn" style="width:100%; padding:0.8rem; font-size:1rem;">Publish (Get Magic Link via SMS)</button>
+        </form>
+    </main>
+    <script>
+        // Fluid drag uploader micro-logic placeholder
+        const zone = document.getElementById('dropZone');
+        zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.style.borderColor = 'var(--accent-green)'; });
+        zone.addEventListener('dragleave', () => { zone.style.borderColor = '#ccc'; });
+    </script>
+</body>
+</html>

@@ -3,25 +3,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trek Alpha Mountain Bike - COMMON.</title>
+    <title>Item View - COMMON.</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .listing-layout { 
-            max-width: 1100px; 
+            max-width: 1300px; 
             margin: 2rem auto; 
             display: grid; 
             grid-template-columns: 1.2fr 1fr; 
             gap: 3rem; 
         }
         
-        /* Image Grid Utility */
+        /* Image presentation layout */
         .photo-pane { display: flex; flex-direction: column; gap: 1rem; }
         .main-img { width: 100%; border-radius: 6px; border: 1px solid var(--border); aspect-ratio: 4/3; object-fit: cover; }
         .thumb-row { display: flex; gap: 0.5rem; }
         .thumb-img { width: 80px; height: 60px; border-radius: 4px; border: 1px solid var(--border); object-fit: cover; cursor: pointer; }
 
-        /* Meta Metadata Data */
+        /* Listing details data presentation */
         .meta-pane { display: flex; flex-direction: column; }
         .title-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
         .title-row h2 { font-size: 1.8rem; font-weight: 800; margin: 0; letter-spacing: -0.03em; }
@@ -29,21 +28,22 @@
         .geo-tag { font-family: monospace; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
         
         .status-pill { display: inline-flex; align-items: center; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; width: fit-content; margin-bottom: 2rem; }
-        .desc-text { font-size: 1rem; line-height: 1.5; color: #333; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .desc-text { font-size: 1rem; line-height: 1.5; color: var(--text); margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
 
-        /* UI Interactive Cards */
+        /* UI Input Group Boxes */
         .ui-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 6px; margin-bottom: 1.5rem; }
         .ui-card h4 { margin: 0 0 0.75rem 0; font-size: 1.05rem; font-weight: 700; }
         .ui-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 1rem 0; line-height: 1.4; }
         
-        textarea, input[type="text"] { width: 100%; padding: 0.65rem; border: 1px solid var(--border); border-radius: 4px; box-sizing: border-box; font-size: 0.95rem; font-family: inherit; }
+        textarea, .relay-input-box input[type="text"] { width: 100%; padding: 0.65rem; border: 1px solid var(--border); border-radius: 4px; box-sizing: border-box; font-size: 0.95rem; font-family: inherit; background: var(--bg); color: var(--text); }
         .relay-input-box { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
 
+        /* Masked App Deeplink Targets */
         .btn-p2p { display: flex; align-items: center; justify-content: center; width: 100%; padding: 0.75rem; color: #fff; font-weight: 600; text-decoration: none; border-radius: 5px; margin-bottom: 0.5rem; font-size: 0.95rem; text-align: center; }
         .btn-venmo { background: #008cff; }
         .btn-cashapp { background: #00d632; }
         
-        .stopgap-banner { background: #fef2f2; border: 1px dashed var(--danger, #b91c1c); color: #991b1b; padding: 0.85rem; border-radius: 5px; font-size: 0.8rem; margin-top: 1rem; line-height: 1.4; }
+        .stopgap-banner { background: #fef2f2; border: 1px dashed #b91c1c; color: #991b1b; padding: 0.85rem; border-radius: 5px; font-size: 0.8rem; margin-top: 1rem; line-height: 1.4; }
     </style>
 </head>
 <body>
@@ -54,8 +54,7 @@
     </header>
 
     <main class="listing-layout">
-        
-        <!-- VISUAL IMAGE COLUMN -->
+        <!-- LEFT COLUMN: VISUAL CONTENT -->
         <section class="photo-pane">
             <img src="https://unsplash.com" class="main-img" alt="Main Item Photo">
             <div class="thumb-row">
@@ -64,28 +63,28 @@
             </div>
         </section>
 
-        <!-- TRANSACTION COLUMN -->
+        <!-- RIGHT COLUMN: TRANSACTION PROTOCOLS -->
         <section class="meta-pane">
             <div class="title-row">
-                <h2>Trek Alpha Mountain Bike</h2>
-                <div class="price-tag">$350</div>
+                <h2>Green Velvet Sofa</h2>
+                <div class="price-tag">$120</div>
             </div>
-            <div class="geo-tag">ID: 8f3b9a12 // Listed: 2 hours ago // 📍 Stevens Point, WI</div>
+            <div class="geo-tag">ID: 8f3b9a12 // Listed: 2 hours ago // 📍 Rosholt, WI</div>
 
             <div class="status-pill badge-active">
                 ● Active (Available for Swap)
             </div>
 
             <div class="desc-text">
-                Extremely clean condition Trek mountain bike. 21-speed, frame size medium. Minor scratches on the lower frame but shifts smoothly and handles great. Tires are practically brand new. Cash or P2P app swap only.
+                Beautiful mid-century modern green velvet sofa. Incredibly comfortable and clean condition with minimal wear. Moving locations and cannot transport it. Must pick up in person near Rosholt.
             </div>
 
-            <!-- CARD 1: EPHEMERAL MESSAGE INGEST -->
+            <!-- EPHEMERAL INBOX INGEST FIELD -->
             <div class="ui-card">
                 <h4>Message Seller Anonymously</h4>
-                <p>Your delivery endpoint remains completely walled off. The framework creates an ephemeral routing session window.</p>
+                <p>Your delivery endpoint remains completely hidden. The system generates a transient connection gateway session.</p>
                 <form action="#">
-                    <textarea placeholder="Ask a question or propose a safe meetup swap window..." rows="3" required></textarea>
+                    <textarea placeholder="Ask a question or propose an exchange meetup window..." rows="3" required></textarea>
                     <div class="relay-input-box">
                         <input type="text" placeholder="Your Phone or Email Address" required>
                         <button type="submit" class="btn" style="padding: 0 1.2rem;">Send</button>
@@ -93,13 +92,12 @@
                 </form>
             </div>
 
-            <!-- CARD 2: MASKED P2P PAYMENTS -->
+            <!-- ENCRYPTED P2P LINK UTILITIES -->
             <div class="ui-card">
                 <h4>In-Person Cashless Payment</h4>
-                <p>Inspect item first. Tapping triggers your device's native app client with verified payload hashes. Seller handles are entirely hidden from data scrapers.</p>
+                <p>Inspect item first. Tapping triggers your phone client app natively with verified credentials pre-filled. User strings remain hidden from scrapers.</p>
                 
-                <!-- Masked deep links triggering phone clients instantly on-site -->
-                <a href="venmo://paycharge?txn=pay&recipients=masked_id_hash&amount=350&note=Trek+Bike" class="btn-p2p btn-venmo">
+                <a href="venmo://paycharge?txn=pay&recipients=masked_id_hash&amount=120&note=Green+Sofa" class="btn-p2p btn-venmo">
                     Pay with Venmo
                 </a>
                 <a href="https://cash.app" class="btn-p2p btn-cashapp">
@@ -107,70 +105,61 @@
                 </a>
 
                 <div class="stopgap-banner">
-                    <strong>🛑 Anti-Fraud Notification:</strong> Never accept screen capture images or incoming standard carrier text notifications as proof of transaction. Manually open your official mobile banking interface to confirm the incoming balance.
+                    <strong>🛑 Anti-Fraud Checkpoint:</strong> Never verify payments via text notifications or screenshot image claims. Manually launch your banking client interface to confirm the balancing record.
                 </div>
             </div>
         </section>
-
     </main>
 
-   <footer>
-    <div class="footer-brand">
-        <h4>COMMON.</h4>
-        <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
-    </div>
-    
-    <div class="footer-links">
-        <h5>The Infrastructure</h5>
-        <ul>
-            <!-- 3. How It Runs Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="toggleHowItRuns()" id="howItRunsToggleLink">How it Runs (Serverless Routing) ↓</a>
-                <div id="howItRunsPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-                    <strong>Stateless Architecture Protocol:</strong><br><br>
-                    This platform functions without a traditional central user database. When listings are created, data fields are stored as single-use transactional records indexed strictly by geographical location filters. 
-                    <br><br>
-                    Communication operates via transient server-side mail transfer relays that expire dynamically, meaning no persistent data footprints are retained once transactions close.
-                </div>
-            </li>
-            
-            <!-- 4. Data Privacy Blueprint Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="togglePrivacyBlueprint()" id="privacyBlueprintToggleLink">Data Privacy Blueprint ↓</a>
-                <div id="privacyBlueprintPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-                    <strong>Uncompromising Anonymity Principles:</strong><br><br>
-                    • <strong>0 KB Tracking:</strong> No Facebook SDKs, Google Analytics script injections, or marketing tracking pixels are compiled into this application code.<br>
-                    • <strong>Endpoint Masking:</strong> Sensitive delivery data fields like phone handles or P2P financial signatures are scrambled via backend routing payloads, hidden from bots, and opened directly in device native environments securely.
-                </div>
-            </li>
-            
-            <!-- 1. Safe Swap Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="toggleSafeZones()" id="safeZoneToggleLink">Safe Swap Exchange Locations ↓</a>
-                <div id="safeZonePopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #edf7ed; border: 1px solid #c3e6cb; border-radius: 6px; font-size: 0.85rem; color: #1e4620; line-height: 1.4;">
-                    <ul id="safeLocationList" style="margin: 0; padding-left: 1.2rem;"></ul>
-                </div>
-            </li>
-        </ul>
-    </div>
+    <!-- UNIFIED DOCUMENT FOOTER -->
+    <footer>
+        <div class="footer-brand">
+            <h4>COMMON.</h4>
+            <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
+        </div>
+        
+        <div class="footer-links">
+            <h5>The Infrastructure</h5>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleHowItRuns()" id="howItRunsToggleLink">How it Runs (Serverless Routing) ↓</a>
+                    <div id="howItRunsPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Stateless Architecture Protocol:</strong><br><br>
+                        This platform functions without a traditional central user database. When listings are created, data fields are stored as single-use transactional records indexed strictly by geographical location filters. 
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="togglePrivacyBlueprint()" id="privacyBlueprintToggleLink">Data Privacy Blueprint ↓</a>
+                    <div id="privacyBlueprintPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Uncompromising Anonymity Principles:</strong><br><br>
+                        • <strong>0 KB Tracking:</strong> No Facebook SDKs or tracking pixels compiled here.<br>
+                        • <strong>Endpoint Masking:</strong> Sensitive profiles stay wrapped away from scraping tools.
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleSafeZones()" id="safeZoneToggleLink">Safe Swap Exchange Locations ↓</a>
+                    <div id="safeZonePopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #edf7ed; border: 1px solid #c3e6cb; border-radius: 6px; font-size: 0.85rem; color: #1e4620; line-height: 1.4;">
+                        <ul id="safeLocationList" style="margin: 0; padding-left: 1.2rem;"></ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-    <div class="footer-links">
-        <h5>The Project</h5>
-        <ul>
-            <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
-            <!-- 2. Who Owns This Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
-                <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-                    <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
-                    This platform is a transparent public prototype born from real exhaustion with modern big-tech data tracking and web slop. The source files belong fully to the open-source software community.
-                </div>
-            </li>
-        </ul>
-    </div>
-</footer>
+        <div class="footer-links">
+            <h5>The Project</h5>
+            <ul>
+                <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
+                    <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
+                        This platform is a transparent public prototype born from real exhaustion with modern big-tech data tracking and web slop. The source files belong fully to the open-source software community.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
     <script src="app.js"></script>
-
 </body>
 </html>

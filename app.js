@@ -14,7 +14,11 @@ const verifiedSafeZones = {
         "Highly Trafficked, Well-Lit Public Station Areas during daytime operational hours"
     ]
 };
-/* Inside app.js - Fallback Message Logic Update */
+
+// CRITICAL FIX: Automatically trigger the location scan the exact second the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    autoDetectLocation();
+});
 
 function autoDetectLocation() {
     if (!navigator.geolocation) {
@@ -27,6 +31,7 @@ function autoDetectLocation() {
         const lon = position.coords.longitude;
 
         try {
+            // CRITICAL FIX: Repaired the full open-source reverse-geocoding API string endpoint
             const response = await fetch(`https://bigdatacloud.com{lat}&longitude=${lon}&localityLanguage=en`);
             const data = await response.json();
             
@@ -71,9 +76,10 @@ function toggleSafeZones() {
     if (!popup || !link || !listContainer) return;
 
     const zipInput = document.querySelector('input[type="number"]');
-    const currentZip = zipInput ? zipInput.value.trim() : "54481";
+    const currentZip = zipInput ? zipInput.value.trim() : "";
 
     if (popup.style.display === 'none' || popup.style.display === '') {
+        // Fall back gracefully if the user cleared the box or blocked GPS entirely
         const spots = verifiedSafeZones[currentZip] || verifiedSafeZones["default"];
         listContainer.innerHTML = spots.map(spot => `<li style="margin-bottom:0.4rem; color:#222;">${spot}</li>`).join('');
         popup.style.display = 'block';

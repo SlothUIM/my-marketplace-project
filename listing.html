@@ -138,23 +138,7 @@
     </footer>
 
     <!-- Universal toggle script tracker -->
-    <script>
-    function toggleOwnershipInfo() {
-        // Shared toggle logic matching previous page components
-        let p = document.getElementById('ownershipPopup') || document.createElement('div');
-        if(!document.getElementById('ownershipPopup')) {
-            p.id = 'ownershipPopup';
-            p.style.cssText = 'margin-top:0.75rem; padding:1rem; background:#f4f4f5; border:1px solid var(--border); border-radius:6px; font-size:0.85rem; color:#333; line-height:1.4;';
-            p.innerHTML = '<strong>Nobody owns it. It is an open-source utility.</strong><br><br>This platform is a transparent public prototype. The code is hosted on GitHub for anyone to copy, audit, or deploy locally.';
-            document.getElementById('ownerToggleLink').parentNode.appendChild(p);
-        }
-        let link = document.getElementById('ownerToggleLink');
-        if (p.style.display === 'none' || p.style.display === '') {
-            p.style.display = 'block'; link.innerHTML = 'Who Owns & Runs This? ↑'; link.style.fontWeight = '700';
-        } else {
-            p.style.display = 'none'; link.innerHTML = 'Who Owns & Runs This? ↓'; link.style.fontWeight = 'normal';
-        }
-    }
-    </script>
+    <script src="app.js"></script>
+
 </body>
 </html>

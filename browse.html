@@ -2,130 +2,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><title>Browse - COMMON.</title>
+    <meta charset="UTF-8">
+    <title>Browse - COMMON.</title>
     <link rel="stylesheet" href="style.css">
-   <!-- browse.html - Compact Matrix Setup -->
-<style>
-    /* Replace the old feed-grid code with this */
-    .feed-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
-        gap: 1.25rem; 
-    }
-    .card { 
-        background: var(--surface); 
-        border: 1px solid var(--border); 
-        border-radius: 6px; 
-        overflow: hidden; 
-        text-decoration: none; 
-        color: inherit; 
-        display: flex; 
-        flex-direction: column; 
-        font-size: 0.85rem; /* Slightly smaller typography to match smaller card */
-    }
-    .card:hover { border-color: var(--accent-indigo); }
-    .card-details { padding: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem; }
-    .price { font-size: 1.1rem; font-weight: 700; color: var(--accent-green); }
-</style>
-
 </head>
 <body>
+
     <header>
         <a href="index.html" class="logo-btn"><h1>COMMON.</h1></a>
         <a href="post.html" class="btn">+ Sell Something</a>
     </header>
+
     <main class="split">
+        <!-- LEFT COLUMN: SIDEBAR CONTROLS -->
         <aside class="sidebar">
-            <input type="text" placeholder="Keywords..." value="Furniture">
+            <input type="text" placeholder="Keywords..." value="Household">
             <input type="number" value="54481">
+            <select>
+                <option>Within 15 miles</option>
+                <option>Within 30 miles</option>
+            </select>
             <label><input type="checkbox" checked> Active Only</label>
         </aside>
+
+        <!-- RIGHT COLUMN: CHRONOLOGICAL MATRIX SELECTION -->
         <section>
             <div class="feed-grid">
-                <!-- Card 1: Active Household Listing -->
+                
+                <!-- Card 1: Active Velvet Couch -->
                 <a href="listing.html" class="card">
                     <div class="img-wrap">
                         <img src="https://unsplash.com" alt="Couch">
-                        <div class="badge badge-active" style="position:absolute; top:10px; left:10px;">● Active</div>
+                        <div class="badge badge-active" style="position:absolute; top:8px; left:8px;">● Active</div>
                     </div>
                     <div class="card-details">
                         <span class="price">$120</span>
-                        <h4 style="margin:0;">Green Velvet Sofa</h4>
-                        <span style="font-size:0.8rem; color:var(--text-muted);">Rosholt • 2h ago</span>
+                        <h4 style="margin:0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Green Velvet Sofa</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">Rosholt • 2h ago</span>
                     </div>
                 </a>
-                <!-- Card 2: Pending Hold Household Listing -->
+
+                <!-- Card 2: Pending Power Drill -->
                 <a href="#" class="card">
                     <div class="img-wrap">
                         <img src="https://unsplash.com" alt="Drill">
-                        <div class="badge badge-pending" style="position:absolute; top:10px; left:10px;">⏳ Pending Hold</div>
+                        <div class="badge badge-pending" style="position:absolute; top:8px; left:8px;">⏳ Pending</div>
                     </div>
                     <div class="card-details">
                         <span class="price">$45</span>
-                        <h4 style="margin:0;">Cordless Power Drill</h4>
-                        <span style="font-size:0.8rem; color:var(--text-muted);">Stevens Point • 4h ago</span>
+                        <h4 style="margin:0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Cordless Power Drill</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">Stevens Point • 4h ago</span>
                     </div>
                 </a>
+
+                <!-- Card 3: Craftsman Mower -->
+                <a href="#" class="card">
+                    <div class="img-wrap">
+                        <img src="https://unsplash.com" alt="Mower">
+                        <div class="badge badge-active" style="position:absolute; top:8px; left:8px;">● Active</div>
+                    </div>
+                    <div class="card-details">
+                        <span class="price">$85</span>
+                        <h4 style="margin:0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Craftsman Push Lawnmower</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">Plover • 1d ago</span>
+                    </div>
+                </a>
+
+                <!-- Card 4: Dell Monitor -->
+                <a href="#" class="card">
+                    <div class="img-wrap">
+                        <img src="https://unsplash.com" alt="Monitor">
+                        <div class="badge badge-active" style="position:absolute; top:8px; left:8px;">● Active</div>
+                    </div>
+                    <div class="card-details">
+                        <span class="price">$110</span>
+                        <h4 style="margin:0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Dell 27" 4K Monitor</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">Stevens Point • 2d ago</span>
+                    </div>
+                </a>
+
+                <!-- Card 5: Vintage Books -->
+                <a href="#" class="card">
+                    <div class="img-wrap">
+                        <img src="https://unsplash.com" alt="Books">
+                        <div class="badge badge-active" style="position:absolute; top:8px; left:8px;">● Active</div>
+                    </div>
+                    <div class="card-details">
+                        <span class="price">$10</span>
+                        <h4 style="margin:0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Vintage Hardcover Stack</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">Hull • 3d ago</span>
+                    </div>
+                </a>
+
             </div>
         </section>
     </main>
-<footer>
-    <div class="footer-brand">
-        <h4>COMMON.</h4>
-        <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
-    </div>
-    
-    <div class="footer-links">
-        <h5>The Infrastructure</h5>
-        <ul>
-            <!-- 3. How It Runs Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="toggleHowItRuns()" id="howItRunsToggleLink">How it Runs (Serverless Routing) ↓</a>
-                <div id="howItRunsPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-                    <strong>Stateless Architecture Protocol:</strong><br><br>
-                    This platform functions without a traditional central user database. When listings are created, data fields are stored as single-use transactional records indexed strictly by geographical location filters. 
-                    <br><br>
-                    Communication operates via transient server-side mail transfer relays that expire dynamically, meaning no persistent data footprints are retained once transactions close.
-                </div>
-            </li>
-            
-            <!-- 4. Data Privacy Blueprint Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="togglePrivacyBlueprint()" id="privacyBlueprintToggleLink">Data Privacy Blueprint ↓</a>
-                <div id="privacyBlueprintPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-                    <strong>Uncompromising Anonymity Principles:</strong><br><br>
-                    • <strong>0 KB Tracking:</strong> No Facebook SDKs, Google Analytics script injections, or marketing tracking pixels are compiled into this application code.<br>
-                    • <strong>Endpoint Masking:</strong> Sensitive delivery data fields like phone handles or P2P financial signatures are scrambled via backend routing payloads, hidden from bots, and opened directly in device native environments securely.
-                </div>
-            </li>
-            
-            <!-- 1. Safe Swap Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="toggleSafeZones()" id="safeZoneToggleLink">Safe Swap Exchange Locations ↓</a>
-                <div id="safeZonePopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #edf7ed; border: 1px solid #c3e6cb; border-radius: 6px; font-size: 0.85rem; color: #1e4620; line-height: 1.4;">
-                    <ul id="safeLocationList" style="margin: 0; padding-left: 1.2rem;"></ul>
-                </div>
-            </li>
-        </ul>
-    </div>
 
-    <div class="footer-links">
-        <h5>The Project</h5>
-        <ul>
-            <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
-            <!-- 2. Who Owns This Toggle Component -->
-            <li>
-                <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
-                <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-                    <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
-                    This platform is a transparent public prototype born from real exhaustion with modern big-tech data tracking and web slop. The source files belong fully to the open-source software community.
-                </div>
-            </li>
-        </ul>
-    </div>
-</footer>
+    <footer>
+        <div class="footer-brand">
+            <h4>COMMON.</h4>
+            <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
+        </div>
+        
+        <div class="footer-links">
+            <h5>The Infrastructure</h5>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleHowItRuns()" id="howItRunsToggleLink">How it Runs (Serverless Routing) ↓</a>
+                    <div id="howItRunsPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Stateless Architecture Protocol:</strong><br><br>
+                        This platform functions without a traditional central user database. When listings are created, data fields are stored as single-use transactional records indexed strictly by geographical location filters.
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="togglePrivacyBlueprint()" id="privacyBlueprintToggleLink">Data Privacy Blueprint ↓</a>
+                    <div id="privacyBlueprintPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Uncompromising Anonymity Principles:</strong><br><br>
+                        • 0 KB Tracking compiled into this application code.<br>
+                        • Sensitive endpoints remain masked from public scrapers natively.
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleSafeZones()" id="safeZoneToggleLink">Safe Swap Exchange Locations ↓</a>
+                    <div id="safeZonePopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #edf7ed; border: 1px solid #c3e6cb; border-radius: 6px; font-size: 0.85rem; color: #1e4620; line-height: 1.4;">
+                        <ul id="safeLocationList" style="margin: 0; padding-left: 1.2rem;"></ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-<script src="app.js"></script>
+        <div class="footer-links">
+            <h5>The Project</h5>
+            <ul>
+                <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
+                    <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
+                        This platform is a transparent public prototype born from real exhaustion with modern big-tech data tracking and web slop.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
+    <script src="app.js"></script>
 </body>
 </html>

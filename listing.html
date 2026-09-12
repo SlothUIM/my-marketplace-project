@@ -1,0 +1,160 @@
+<!-- listing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trek Alpha Mountain Bike - COMMON.</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .listing-layout { 
+            max-width: 1100px; 
+            margin: 2rem auto; 
+            display: grid; 
+            grid-template-columns: 1.2fr 1fr; 
+            gap: 3rem; 
+        }
+        
+        /* Image Grid Utility */
+        .photo-pane { display: flex; flex-direction: column; gap: 1rem; }
+        .main-img { width: 100%; border-radius: 6px; border: 1px solid var(--border); aspect-ratio: 4/3; object-fit: cover; }
+        .thumb-row { display: flex; gap: 0.5rem; }
+        .thumb-img { width: 80px; height: 60px; border-radius: 4px; border: 1px solid var(--border); object-fit: cover; cursor: pointer; }
+
+        /* Meta Metadata Data */
+        .meta-pane { display: flex; flex-direction: column; }
+        .title-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+        .title-row h2 { font-size: 1.8rem; font-weight: 800; margin: 0; letter-spacing: -0.03em; }
+        .price-tag { font-size: 1.8rem; font-weight: 800; color: var(--accent-green); }
+        .geo-tag { font-family: monospace; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        
+        .status-pill { display: inline-flex; align-items: center; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; width: fit-content; margin-bottom: 2rem; }
+        .desc-text { font-size: 1rem; line-height: 1.5; color: #333; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+
+        /* UI Interactive Cards */
+        .ui-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 6px; margin-bottom: 1.5rem; }
+        .ui-card h4 { margin: 0 0 0.75rem 0; font-size: 1.05rem; font-weight: 700; }
+        .ui-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 1rem 0; line-height: 1.4; }
+        
+        textarea, input[type="text"] { width: 100%; padding: 0.65rem; border: 1px solid var(--border); border-radius: 4px; box-sizing: border-box; font-size: 0.95rem; font-family: inherit; }
+        .relay-input-box { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+
+        .btn-p2p { display: flex; align-items: center; justify-content: center; width: 100%; padding: 0.75rem; color: #fff; font-weight: 600; text-decoration: none; border-radius: 5px; margin-bottom: 0.5rem; font-size: 0.95rem; text-align: center; }
+        .btn-venmo { background: #008cff; }
+        .btn-cashapp { background: #00d632; }
+        
+        .stopgap-banner { background: #fef2f2; border: 1px dashed var(--danger, #b91c1c); color: #991b1b; padding: 0.85rem; border-radius: 5px; font-size: 0.8rem; margin-top: 1rem; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-btn"><h1>COMMON.</h1></a>
+        <a href="post.html" class="btn">+ Sell Something</a>
+    </header>
+
+    <main class="listing-layout">
+        
+        <!-- VISUAL IMAGE COLUMN -->
+        <section class="photo-pane">
+            <img src="https://unsplash.com" class="main-img" alt="Main Item Photo">
+            <div class="thumb-row">
+                <img src="https://unsplash.com" class="thumb-img">
+                <img src="https://unsplash.com" class="thumb-img">
+            </div>
+        </section>
+
+        <!-- TRANSACTION COLUMN -->
+        <section class="meta-pane">
+            <div class="title-row">
+                <h2>Trek Alpha Mountain Bike</h2>
+                <div class="price-tag">$350</div>
+            </div>
+            <div class="geo-tag">ID: 8f3b9a12 // Listed: 2 hours ago // 📍 Stevens Point, WI</div>
+
+            <div class="status-pill badge-active">
+                ● Active (Available for Swap)
+            </div>
+
+            <div class="desc-text">
+                Extremely clean condition Trek mountain bike. 21-speed, frame size medium. Minor scratches on the lower frame but shifts smoothly and handles great. Tires are practically brand new. Cash or P2P app swap only.
+            </div>
+
+            <!-- CARD 1: EPHEMERAL MESSAGE INGEST -->
+            <div class="ui-card">
+                <h4>Message Seller Anonymously</h4>
+                <p>Your delivery endpoint remains completely walled off. The framework creates an ephemeral routing session window.</p>
+                <form action="#">
+                    <textarea placeholder="Ask a question or propose a safe meetup swap window..." rows="3" required></textarea>
+                    <div class="relay-input-box">
+                        <input type="text" placeholder="Your Phone or Email Address" required>
+                        <button type="submit" class="btn" style="padding: 0 1.2rem;">Send</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CARD 2: MASKED P2P PAYMENTS -->
+            <div class="ui-card">
+                <h4>In-Person Cashless Payment</h4>
+                <p>Inspect item first. Tapping triggers your device's native app client with verified payload hashes. Seller handles are entirely hidden from data scrapers.</p>
+                
+                <!-- Masked deep links triggering phone clients instantly on-site -->
+                <a href="venmo://paycharge?txn=pay&recipients=masked_id_hash&amount=350&note=Trek+Bike" class="btn-p2p btn-venmo">
+                    Pay with Venmo
+                </a>
+                <a href="https://cash.app" class="btn-p2p btn-cashapp">
+                    Pay with Cash App
+                </a>
+
+                <div class="stopgap-banner">
+                    <strong>🛑 Anti-Fraud Notification:</strong> Never accept screen capture images or incoming standard carrier text notifications as proof of transaction. Manually open your official mobile banking interface to confirm the incoming balance.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER TRANSFERRED INTACT -->
+    <footer>
+        <div class="footer-brand">
+            <h4>COMMON.</h4>
+            <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
+        </div>
+        <div class="footer-links">
+            <h5>The Infrastructure</h5>
+            <ul>
+                <li><a href="#">How it Runs (Serverless Routing)</a></li>
+                <li><a href="#">Data Privacy Blueprint</a></li>
+                <li><a href="#">Safe Swap Exchange Locations</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h5>The Project</h5>
+            <ul>
+                <li><a href="https://github.com" target="_blank">View GitHub Repository</a></li>
+                <li><a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Universal toggle script tracker -->
+    <script>
+    function toggleOwnershipInfo() {
+        // Shared toggle logic matching previous page components
+        let p = document.getElementById('ownershipPopup') || document.createElement('div');
+        if(!document.getElementById('ownershipPopup')) {
+            p.id = 'ownershipPopup';
+            p.style.cssText = 'margin-top:0.75rem; padding:1rem; background:#f4f4f5; border:1px solid var(--border); border-radius:6px; font-size:0.85rem; color:#333; line-height:1.4;';
+            p.innerHTML = '<strong>Nobody owns it. It is an open-source utility.</strong><br><br>This platform is a transparent public prototype. The code is hosted on GitHub for anyone to copy, audit, or deploy locally.';
+            document.getElementById('ownerToggleLink').parentNode.appendChild(p);
+        }
+        let link = document.getElementById('ownerToggleLink');
+        if (p.style.display === 'none' || p.style.display === '') {
+            p.style.display = 'block'; link.innerHTML = 'Who Owns & Runs This? ↑'; link.style.fontWeight = '700';
+        } else {
+            p.style.display = 'none'; link.innerHTML = 'Who Owns & Runs This? ↓'; link.style.fontWeight = 'normal';
+        }
+    }
+    </script>
+</body>
+</html>

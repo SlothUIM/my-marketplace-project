@@ -1,5 +1,4 @@
-/* style.css */
-/* style.css - Token Expansion Update */
+/* style.css - Token Expansion & Split Matrix Update */
 :root { 
     --bg: #f8fafc; 
     --surface: #ffffff;
@@ -19,16 +18,7 @@ body {
     padding: 2rem; 
 }
 
-/* Expanded Grid Systems */
-.grid-6x {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1.25rem;
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
-/* Global Nav System Update */
+/* Global Nav System */
 header { 
     max-width: 1300px; 
     margin: 0 auto 3rem auto; 
@@ -41,14 +31,76 @@ h1 { font-size: 1.8rem; font-weight: 800; margin: 0; letter-spacing: -0.05em; co
 .btn { background: var(--text); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; }
 .btn:hover { background: #1e293b; }
 
-/* Status Protocols used on feed and individual listings */
-.badge { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
+/* The Fixed Two-Column Split Architecture */
+.split { 
+    display: grid; 
+    grid-template-columns: 240px 1fr; 
+    gap: 2.5rem; 
+    max-width: 1300px; 
+    margin: 0 auto; 
+}
+
+/* Sidebar Navigation Layout Fields */
+.sidebar { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.25rem; 
+}
+.sidebar input[type="text"], .sidebar input[type="number"], .sidebar select {
+    padding: 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: var(--surface);
+    color: var(--text);
+    width: 100%;
+    box-sizing: border-box;
+}
+.sidebar label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+/* The Dense 180px Card Matrix */
+.feed-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 1.25rem; 
+}
+
+.card { 
+    background: var(--surface); 
+    border: 1px solid var(--border); 
+    border-radius: 6px; 
+    overflow: hidden; 
+    text-decoration: none; 
+    color: inherit; 
+    display: flex; 
+    flex-direction: column; 
+    font-size: 0.85rem;
+    position: relative;
+    transition: border-color 0.15s ease;
+}
+.card:hover { border-color: var(--accent-indigo); }
+
+.img-wrap { position: relative; aspect-ratio: 4/3; background: #e2e8f0; width: 100%; }
+.img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Status Badge Overlays */
+.badge { font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
 .badge-active { background: #dcfce7; color: #166534; }
 .badge-pending { background: #fef9c3; color: #854d0e; }
 
-/* Footer & Transparency Framework */
+.card-details { padding: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.price { font-size: 1.1rem; font-weight: 700; color: var(--accent-green); }
+
+/* Unified Footer Layout */
 footer {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 6rem auto 2rem auto;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
@@ -58,14 +110,10 @@ footer {
     font-size: 0.9rem;
     line-height: 1.5;
 }
-.footer-brand h4 { font-size: 1.1rem; font-weight: 800; margin: 0 0 0.5rem 0; letter-spacing: -0.04em; }
+.footer-brand h4 { font-size: 1.1rem; font-weight: 800; margin: 0 0 0.5rem 0; letter-spacing: -0.04em; color: var(--accent-indigo); }
 .footer-brand p { color: var(--text-muted); margin: 0; font-size: 0.85rem; }
 .footer-links h5 { font-size: 0.85rem; font-weight: 700; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
 .footer-links ul { list-style: none; padding: 0; margin: 0; }
 .footer-links li { margin-bottom: 0.5rem; }
-.footer-links a { color: var(--text); text-decoration: none; border-bottom: 1px dashed transparent; }
-.footer-links a:hover { border-bottom-color: var(--text); }
-
-@media (max-width: 768px) {
-    footer { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-}
+.footer-links a { color: var(--text); text-decoration: none; }
+.footer-links a:hover { color: var(--accent-indigo); }

@@ -45,14 +45,28 @@
         <a href="post" class="btn">+ Sell Something</a>
     </header>
 
-    <main class="hero">
-        <h2>Local peer-to-peer utility. No accounts. No tracking.</h2>
-        
-        <div class="utility-bar">
-            <input type="text" class="search-main" placeholder="Search all local items...">
-            <input type="number" class="zip-main" value="54481">
-            <button class="btn" onclick="window.location.href='browse'">Go</button>
+<main class="hero">
+    <h2>Local peer-to-peer utility. No accounts. No tracking.</h2>
+    
+    <!-- Native form submission pipes parameters cleanly right to browse.php -->
+    <form method="GET" action="browse">
+        <div class="utility-bar" style="display: flex; gap: 1rem; max-width: 800px; margin: 2rem auto 4rem auto; align-items: center;">
+            <input type="text" name="q" class="search-main" placeholder="Search all local items...">
+            <input type="number" name="zip" class="zip-main" value="54481" placeholder="ZIP">
+            
+            <!-- Added the matching streamlined distance matrix drop-down selection -->
+            <select name="range" style="padding: 0.8rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; color: var(--text); background: var(--surface);">
+                <option value="">Exact location</option>
+                <option value="5">Within 5 miles</option>
+                <option value="10">Within 10 miles</option>
+                <option value="15">Within 15 miles</option>
+                <option value="25">Within 25 miles</option>
+                <option value="50">Within 50 miles</option>
+            </select>
+            
+            <button type="submit" class="btn" style="padding: 0.8rem 2rem; font-size: 1rem;">Go</button>
         </div>
+    </form>
 
         <!-- The Fixed Grid Matrix Wrapper -->
         <div class="grid-6x">

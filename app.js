@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
 function autoDetectLocation() {
     if (!navigator.geolocation) {
         showManualLocationMessage();
@@ -136,4 +137,35 @@ function togglePrivacyBlueprint() {
         link.innerHTML = 'Data Privacy Blueprint ↓';
         link.style.fontWeight = 'normal';
     }
+}
+/* Make sure this remains at the bottom of your app.js file */
+function toggleKeyGateDrawer() {
+    const drawer = document.getElementById('headerKeyGateDrawer');
+    const link = document.getElementById('navGateToggleLink');
+    if (!drawer || !link) return;
+
+    if (drawer.style.display === 'none' || drawer.style.display === '') {
+        drawer.style.display = 'block';
+        link.innerHTML = 'Manage Ad ↑';
+        link.style.color = 'var(--accent-indigo)';
+        setTimeout(() => {
+            const inputField = document.getElementById('manualHeaderPasskeyInput');
+            if (inputField) inputField.focus();
+        }, 50);
+    } else {
+        drawer.style.display = 'none';
+        link.innerHTML = 'Manage Ad ↓';
+        link.style.color = 'var(--text-muted)';
+    }
+}
+
+function executeManualKeyRedirect() {
+    const keyInput = document.getElementById('manualHeaderPasskeyInput');
+    if (!keyInput) return;
+    const cleanKey = keyInput.value.trim();
+    if (cleanKey.length !== 32) {
+        alert("⚠️ Please enter a valid 32-character security hex key.");
+        return;
+    }
+    window.location.href = 'manage?key=' + encodeURIComponent(cleanKey);
 }

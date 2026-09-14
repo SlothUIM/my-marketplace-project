@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // --- SLOTHSCAPE SMTP DISPATCH ---
     if (filter_var($endpoint, FILTER_VALIDATE_EMAIL)) {
         include_once 'common_email_helper.php';
-        $subject = "🔒 Your Common Management Key: " . $title;
+        $subject = "Your Common Management Key: " . $title;
         $body = "
             <div style='font-family: sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; color: #0f172a; padding: 30px; border: 1px solid #e2e8f0; border-radius: 8px;'>
                 <h2 style='color: #4f46e5; margin-top: 0; font-weight: 800; letter-spacing: -0.05em;'>COMMON.</h2>

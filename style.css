@@ -4,7 +4,7 @@
     --surface: #ffffff;
     --text: #0f172a; 
     --text-muted: #64748b;
-    --border: #e2e8f0; 
+    --border: #6499e1; 
     --accent-indigo: #4f46e5;
     --accent-green: #16a34a;
     --accent-gold: #ca8a04;
@@ -18,18 +18,25 @@ body {
     padding: 2rem; 
 }
 
-/* Global Nav System */
+/* Global Nav System - Fully Repaired Spacing */
 header { 
+    width: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+.header-container {
     max-width: 1300px; 
-    margin: 0 auto 3rem auto; 
+    margin: 0 auto; 
     display: flex; 
     justify-content: space-between; 
     align-items: center;
+    padding: 1.5rem 2rem; /* Adds wide breathing room above, below, and on the sides */
+    box-sizing: border-box;
 }
 .logo-btn { text-decoration: none; color: var(--text); }
 h1 { font-size: 1.8rem; font-weight: 800; margin: 0; letter-spacing: -0.05em; color: var(--accent-indigo); }
-.btn { background: var(--text); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; }
-.btn:hover { background: #1e293b; }
+
 
 /* The Fixed Two-Column Split Architecture */
 .split { 
@@ -117,3 +124,98 @@ footer {
 .footer-links li { margin-bottom: 0.5rem; }
 .footer-links a { color: var(--text); text-decoration: none; }
 .footer-links a:hover { color: var(--accent-indigo); }
+
+.relay-input-box {
+    display: flex !important;
+    gap: 0.5rem !important;
+    margin-top: 0.75rem !important;
+    align-items: stretch !important;
+    width: 100% !important;
+}
+
+.relay-input-box input[type="text"] {
+    flex: 1 !important;
+    height: 38px !important;
+    box-sizing: border-box !important;
+    padding: 0.65rem !important;
+}
+
+.relay-input-box button.btn {
+    height: 38px !important;
+    padding: 0 1.5rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+/* Ensure textarea inputs respect focus outlines perfectly */
+textarea:focus, .relay-input-box input[type="text"]:focus {
+    outline: none !important;
+    border-color: var(--accent-indigo) !important;
+}
+/* --- Global High-Contrast Button Specifications --- */
+
+.btn { 
+    background: #6499e1 !important; /* Premium high-contrast deep slate background tone */
+    color: #ffffff !important; 
+    border: none !important; 
+    padding: 0.6rem 1.25rem !important; 
+    border-radius: 6px !important; 
+    font-weight: 600 !important; 
+    font-size: 0.9rem !important;
+    cursor: pointer !important; 
+    text-decoration: none !important; 
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.15s ease !important;
+    box-sizing: border-box !important;
+}
+
+.btn:hover { 
+    background: #1e293b !important; /* Crisp hover transition state */
+}
+
+/* Strip layout lines on input parameters inside the inline drawer wrapper box */
+#manualHeaderPasskeyInput {
+    border: none !important;
+    background: transparent !important;
+}
+
+#manualHeaderPasskeyInput:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+/* --- Uncompromising Leaflet Image Tile Layout Fixes --- */
+#listingSectorMapCanvas {
+    display: block !important;
+    width: 100% !important;
+    height: 380px !important; /* Forces a crisp solid height threshold */
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    box-sizing: border-box !important;
+}
+
+/* Force absolute sizing metrics on map components */
+.leaflet-container img.leaflet-tile {
+    max-width: none !important;
+    max-height: none !important;
+    width: 256px !important; /* Forces the open-source block width parameter */
+    height: 256px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    box-shadow: none !important;
+}
+
+/* Clear vertical translation slop inside structural grids */
+.leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+}

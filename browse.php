@@ -111,10 +111,8 @@ usort($filteredListings, function($a, $b) use ($sortFilter) {
 </head>
 <body>
 
-    <header>
-        <a href="index" class="logo-btn"><h1>COMMON.</h1></a>
-        <a href="post" class="btn">+ Sell Something</a>
-    </header>
+    <?php include_once 'header.php'; ?>
+
 
     <main class="split">
         <!-- LEFT COLUMN: SIDEBAR CONTROLS FILTER BAR -->
@@ -258,6 +256,6 @@ usort($filteredListings, function($a, $b) use ($sortFilter) {
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

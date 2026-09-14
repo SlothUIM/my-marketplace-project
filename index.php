@@ -1,0 +1,135 @@
+<!-- index -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COMMON. - Open Source Classifieds</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero { text-align: center; margin: 4rem auto; max-width: 1300px; padding: 0 1rem; }
+        .hero h2 { font-size: 2.2rem; margin: 0; letter-spacing: -0.04em; }
+        .utility-bar { display: flex; gap: 1rem; max-width: 600px; margin: 2rem auto 4rem auto; }
+        .search-main, .zip-main { padding: 0.8rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; color: var(--text); background: var(--surface); }
+        .search-main { flex-grow: 1; } 
+        .zip-main { width: 90px; text-align: center; }
+        
+        /* FORCED INDEPENDENT GRID LAYOUT - Fixes vertical stacking list bug */
+        .grid-6x {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.25rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .cat-card { 
+            background: var(--surface, #ffffff); 
+            border: 1px solid var(--border, #e2e8f0); 
+            border-radius: 8px; 
+            padding: 1.25rem; 
+            text-decoration: none; 
+            color: inherit; 
+            transition: all 0.15s ease; 
+            box-sizing: border-box;
+            display: block;
+        }
+        .cat-card:hover { border-color: var(--accent-indigo, #4f46e5); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .cat-card h3 { margin: 0; font-size: 0.95rem; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <?php include_once 'header.php'; ?>
+
+<main class="hero">
+    <h2>Local peer-to-peer utility. No accounts. No tracking.</h2>
+    
+    <!-- Native form submission pipes parameters cleanly right to browse.php -->
+    <form method="GET" action="browse">
+        <div class="utility-bar" style="display: flex; gap: 1rem; max-width: 800px; margin: 2rem auto 4rem auto; align-items: center;">
+            <input type="text" name="q" class="search-main" placeholder="Search all local items...">
+            <input type="number" name="zip" class="zip-main" value="54481" placeholder="ZIP">
+            
+            <!-- Added the matching streamlined distance matrix drop-down selection -->
+            <select name="range" style="padding: 0.8rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; color: var(--text); background: var(--surface);">
+                <option value="">Exact location</option>
+                <option value="5">Within 5 miles</option>
+                <option value="10">Within 10 miles</option>
+                <option value="15">Within 15 miles</option>
+                <option value="25">Within 25 miles</option>
+                <option value="50">Within 50 miles</option>
+            </select>
+            
+            <button type="submit" class="btn" style="padding: 0.8rem 2rem; font-size: 1rem;">Go</button>
+        </div>
+    </form>
+
+        <!-- The Fixed Grid Matrix Wrapper -->
+        <div class="grid-6x">
+            <a href="browse?cat=vehicles" class="cat-card"><h3>🚗 Vehicles</h3></a>
+            <a href="browse?cat=parts" class="cat-card"><h3>⚙️ Auto Parts</h3></a>
+            <a href="browse?cat=tools" class="cat-card"><h3>🔧 Tools</h3></a>
+            <a href="browse?cat=garden" class="cat-card"><h3>🌱 Garden & Outdoor</h3></a>
+            <a href="browse?cat=furniture" class="cat-card"><h3>🛋️ Furniture</h3></a>
+            <a href="browse?cat=appliances" class="cat-card"><h3>🔌 Appliances</h3></a>
+            <a href="browse?cat=electronics" class="cat-card"><h3>💻 Tech & Computing</h3></a>
+            <a href="browse?cat=phones" class="cat-card"><h3>📱 Mobile Phones</h3></a>
+            <a href="browse?cat=sporting" class="cat-card"><h3>🚲 Sports & Bikes</h3></a>
+            <a href="browse?cat=hobbies" class="cat-card"><h3>🎨 Hobbies & Art</h3></a>
+            <a href="browse?cat=books" class="cat-card"><h3>📚 Books & Media</h3></a>
+            <a href="browse?cat=free" class="cat-card"><h3>🎁 Free Curb Alerts</h3></a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-brand">
+            <h4>COMMON.</h4>
+            <p>An open-source, decentralized local classifieds prototype. This software does not run background tracking algorithms, store user cookies, or collect biometric network data.</p>
+        </div>
+        
+        <div class="footer-links">
+            <h5>The Infrastructure</h5>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleHowItRuns()" id="howItRunsToggleLink">How it Runs (Serverless Routing) ↓</a>
+                    <div id="howItRunsPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border, #e2e8f0); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Stateless Architecture Protocol:</strong><br><br>
+                        This platform functions without a traditional central user database. When listings are created, data fields are stored as single-use transactional records indexed strictly by geographical location filters. 
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="togglePrivacyBlueprint()" id="privacyBlueprintToggleLink">Data Privacy Blueprint ↓</a>
+                    <div id="privacyBlueprintPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border, #e2e8f0); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Uncompromising Anonymity Principles:</strong><br><br>
+                        • <strong>0 KB Tracking:</strong> No Facebook SDKs or tracking pixels compiled here.<br>
+                        • <strong>Endpoint Masking:</strong> Sensitive profiles stay wrapped away from scraping tools.
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleSafeZones()" id="safeZoneToggleLink">Safe Swap Exchange Locations ↓</a>
+                    <div id="safeZonePopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #edf7ed; border: 1px solid #c3e6cb; border-radius: 6px; font-size: 0.85rem; color: #1e4620; line-height: 1.4;">
+                        <ul id="safeLocationList" style="margin: 0; padding-left: 1.2rem;"></ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-links">
+            <h5>The Project</h5>
+            <ul>
+                <li><a href="https://github.com/SlothUIM/my-marketplace-project" target="_blank">View GitHub Repository</a></li>
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleOwnershipInfo()" id="ownerToggleLink">Who Owns & Runs This? ↓</a>
+                    <div id="ownershipPopup" style="display: none; margin-top: 0.75rem; padding: 1rem; background: #f4f4f5; border: 1px solid var(--border, #e2e8f0); border-radius: 6px; font-size: 0.85rem; color: #333; line-height: 1.4;">
+                        <strong>Nobody owns it. It is an open-source utility.</strong><br><br>
+                        This platform is a transparent public prototype born from real exhaustion with modern big-tech data tracking and web slop. The source files belong fully to the open-source software community.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+   <script src="app.js?v=<?php echo time(); ?>"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@ function sendCommonEmail($to, $subject, $body) {
         $mail->isSMTP();
         $mail->Host       = 'smtp-relay.brevo.com'; 
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'ac2621001@smtp-brevo.com';
+        $mail->Username   = 'YOURUSERNAMEHERE';
 		$mail->Password   = COMMON_SMTP_PASSWORD;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
